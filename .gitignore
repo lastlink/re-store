@@ -1,4 +1,10 @@
+# design
 adobe_xd_export
+
+# dependencies cach
 .cache
 node_modules
+
+# parcel locations
 dist
+dev
