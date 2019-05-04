@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/js/index.js",
   "scripts": {
-    "start": "parcel serve index.html",
+    "start": "parcel serve index.html --public-url /dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
