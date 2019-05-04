@@ -133,6 +133,11 @@ module.exports = async function (zoom, lat, long) {
     console.log(scrape)
     browser.close();
   }
+
+  endTime = new Date();
+  var timeElapsed = endTime - startTime; //in ms
+  timeElapsed /= 1000;
+  scrape.timeElapsed = timeElapsed;
   console.log("resolving")
   // return { message: "scrape" };
   console.log(scrape.status)

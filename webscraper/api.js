@@ -6,7 +6,9 @@ app.listen(port, () => {
     console.log("Server running on port http://localhost:3000");
 });
 
-
+app.get("/", (req, res, next) => {
+    res.send('Hello World!')
+})
 
 app.get("/scrape", async (req, res, next) => {
     var zoom = req.query.zoom,
@@ -48,8 +50,9 @@ app.get("/scrape", async (req, res, next) => {
     }
 
     var response = {
-        people: ["Tony", "Lisa", "Michael", "Ginger"],
+        // people: ["Tony", "Lisa", "Michael", "Ginger"],
         status: resp.status,
+        timeElapsed: resp['timeElapsed'],
         // req.query
         base64Str: resp['base64str']
     }
