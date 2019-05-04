@@ -9,3 +9,9 @@ node_modules
 dist
 dev
 webscraper/package-lock.json
+
+#db credentials
+dbcredentials.py
+
+#python ide files
+.idea/*
