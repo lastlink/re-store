@@ -1,0 +1,16 @@
+input
+mainconfig.js
+
+tmp*
+tmp/*
+
+*.zip
+node_modules
+.DS_Store
+config/config.json
+config/mainconfig.js
+creds.js
+default.log
+
+
+maps
