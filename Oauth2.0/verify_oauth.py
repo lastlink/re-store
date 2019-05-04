@@ -8,6 +8,7 @@ def verify_oauth(auth_code):
     """
     call the python file with auth code 'python verify_oauth.py {auth_code}'
     """
+    # for those sketchy people out there this is only for sandbox hehe
     url = "https://accesstest.authorize.net/oauth/v1/token?grant_type=authorization_code&code="+auth_code+"&client_id=kbQv0P5C2N&client_secret=5ce3711d-58dc-43fc-9b82-e0c2bb1df21d&platform=2"
     req = requests.post(url=url)
     if(req.status_code == 200):
