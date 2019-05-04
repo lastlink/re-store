@@ -1,1 +1,4 @@
-### 
+### get iowa json
+GET https://re-store.funktechno.com/iowa-json.php HTTP/1.1
+
+#
