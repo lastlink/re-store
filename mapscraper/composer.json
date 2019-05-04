@@ -1,0 +1,16 @@
+{
+    "name": "theef/mapscraper",
+    "require": {
+        "symfony/panther": "^0.3.0",
+        "macfja/phar-builder": "^0.2.8"
+    },
+    "require-dev": {
+        "mpyw/comphar": "1.0"
+    },
+    "authors": [
+        {
+            "name": "lastlink",
+            "email": "theefunk@gmail.com"
+        }
+    ]
+}
