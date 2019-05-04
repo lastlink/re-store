@@ -1,7 +1,7 @@
 ### get iowa json
 GET https://re-store.funktechno.com/iowa-json.php HTTP/1.1
 
-#
+# saves an image from .. and return as base64str
 ### nodejs map scraper
 GET http://localhost:3000/scrape?zoom=15&lat=38.9092&long=-77.0344 HTTP/1.1
 

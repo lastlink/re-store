@@ -25,7 +25,7 @@ app.get("/scrape", async (req, res, next) => {
 
     // return scraper(zoom, lat, long).then((resp) =>{
     console.log("testings")
-    var resp = await scraper();
+    var resp = await scraper(zoom, lat, long);
     // zoom, lat, long
 
     console.log("should have waited")
@@ -53,6 +53,9 @@ app.get("/scrape", async (req, res, next) => {
         // req.query
         base64Str: resp['base64str']
     }
+
+    if (resp.status)
+        response.statusCode = 404;
 
     res.setHeader('Content-Type', 'application/json');
     res.json(response);
