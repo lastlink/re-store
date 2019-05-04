@@ -1,0 +1,340 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --web-view-ids: Web_1920___home;
+}
+
+#Web_1920___home * {
+    margin: 0;
+    padding: 0;
+}
+
+#Web_1920___home {
+    position: absolute;
+    box-sizing: border-box;
+    background: #E5E5E5;
+    width: 1920px;
+    height: 1080px;
+    background-color: rgba(255, 255, 255, 1);
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    opacity: 1;
+    --web-view-name: Web 1920 – home;
+    --web-view-id: Web_1920___home;
+    --web-enable-deep-linking: true;
+}
+
+#Rectangle_1 {
+    opacity: 1;
+    fill: rgba(91, 155, 213, 1);
+    stroke: rgb(112, 112, 112);
+    stroke-width: 1px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+
+.Rectangle_1 {
+    position: absolute;
+    overflow: visible;
+    width: 433px;
+    height: 1080px;
+    left: 0px;
+    top: 0px;
+}
+
+#Rectangle_2 {
+    opacity: 1;
+    fill: rgba(109, 106, 106, 1);
+}
+
+.Rectangle_2 {
+    position: absolute;
+    overflow: visible;
+    width: 371px;
+    height: 117px;
+    left: 30px;
+    top: 142px;
+}
+
+#What_do_you_need_ {
+    opacity: 1;
+    position: absolute;
+    left: 99px;
+    top: 181px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    width: 228px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Calibri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    color: rgba(250, 245, 245, 1);
+}
+
+#Rectangle_3 {
+    opacity: 1;
+    fill: rgba(165, 165, 165, 1);
+}
+
+.Rectangle_3 {
+    position: absolute;
+    overflow: visible;
+    width: 259px;
+    height: 90px;
+    left: 100px;
+    top: 298px;
+}
+
+#Find_Customers {
+    opacity: 1;
+    position: absolute;
+    left: 132px;
+    top: 326px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    width: 180px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Calibri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    color: rgba(250, 245, 245, 1);
+}
+
+#Rectangle_4 {
+    opacity: 1;
+    fill: rgba(165, 165, 165, 1);
+}
+
+.Rectangle_4 {
+    position: absolute;
+    overflow: visible;
+    width: 259px;
+    height: 90px;
+    left: 100px;
+    top: 433px;
+}
+
+#Logistics {
+    opacity: 1;
+    position: absolute;
+    left: 181px;
+    top: 461px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    width: 98px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Calibri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    color: rgba(250, 245, 245, 1);
+}
+
+#Rectangle_5 {
+    opacity: 1;
+    fill: rgba(165, 165, 165, 1);
+}
+
+.Rectangle_5 {
+    position: absolute;
+    overflow: visible;
+    width: 259px;
+    height: 90px;
+    left: 100px;
+    top: 578px;
+}
+
+#Funding {
+    opacity: 1;
+    position: absolute;
+    left: 185px;
+    top: 606px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    width: 94px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Calibri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    color: rgba(250, 245, 245, 1);
+}
+
+#Rectangle_6 {
+    opacity: 1;
+    fill: rgba(165, 165, 165, 1);
+}
+
+.Rectangle_6 {
+    position: absolute;
+    overflow: visible;
+    width: 379px;
+    height: 117px;
+    left: 22px;
+    top: 723px;
+}
+
+#Tell_us_about_your_business {
+    opacity: 1;
+    position: absolute;
+    left: 57px;
+    top: 764px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    width: 313px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Calibri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    color: rgba(250, 245, 245, 1);
+}
+
+#Name {
+    opacity: 1;
+    position: absolute;
+    width: 440px;
+    height: 175px;
+    left: 718px;
+    top: 259px;
+    overflow: visible;
+}
+
+#Rectangle_598 {
+    opacity: 1;
+    fill: rgba(241, 249, 255, 1);
+    stroke: rgb(188, 224, 253);
+    stroke-width: 2px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+
+.Rectangle_598 {
+    position: absolute;
+    overflow: visible;
+    width: 432px;
+    height: 134px;
+    left: 8px;
+    top: 41px;
+}
+
+#Water_bottles {
+    opacity: 1;
+    position: absolute;
+    left: 20px;
+    top: 41px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    width: 83px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: rgba(38, 153, 251, 1);
+}
+
+#Request {
+    opacity: 1;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    width: 56px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    color: rgba(38, 153, 251, 1);
+}
+
+#Rectangle_730 {
+    opacity: 1;
+    fill: rgba(255, 255, 255, 1);
+    stroke: rgb(188, 224, 253);
+    stroke-width: 1px;
+    stroke-linejoin: miter;
+    stroke-linecap: butt;
+    stroke-miterlimit: 4;
+    shape-rendering: auto;
+}
+
+.Rectangle_730 {
+    position: absolute;
+    overflow: visible;
+    width: 159px;
+    height: 48px;
+    left: 718px;
+    top: 526px;
+}
+
+#ZIP_CODE {
+    opacity: 1;
+    position: absolute;
+    left: 718px;
+    top: 507px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    width: 48px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    color: rgba(38, 153, 251, 1);
+}
+
+#ID95673 {
+    opacity: 1;
+    position: absolute;
+    left: 734px;
+    top: 543px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    width: 40px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: rgba(38, 153, 251, 1);
+}
