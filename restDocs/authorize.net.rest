@@ -1,1 +1,8 @@
+@secret=specialsecret
+@oauthcode=oauthcode
 ### verify merchant account
+
+### oauth
+POST https://accesstest.authorize.net/oauth/v1/token?grant_type=authorization_code&code={{oauthcode}}&client_id=kbQv0P5C2N&client_secret={{secret}}&platform=2 HTTP/1.1
+
+#

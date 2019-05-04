@@ -13,5 +13,5 @@ webscraper/package-lock.json
 #db credentials
 dbcredentials.py
 
-#python ide files
+#Pycharm files
 .idea/*

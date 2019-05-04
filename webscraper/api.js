@@ -6,7 +6,9 @@ app.listen(port, () => {
     console.log("Server running on port http://localhost:3000");
 });
 
-
+app.get("/", (req, res, next) => {
+    res.send('Hello World!')
+})
 
 app.get("/scrape", async (req, res, next) => {
     var zoom = req.query.zoom,
@@ -25,7 +27,7 @@ app.get("/scrape", async (req, res, next) => {
 
     // return scraper(zoom, lat, long).then((resp) =>{
     console.log("testings")
-    var resp = await scraper();
+    var resp = await scraper(zoom, lat, long);
     // zoom, lat, long
 
     console.log("should have waited")
@@ -48,11 +50,15 @@ app.get("/scrape", async (req, res, next) => {
     }
 
     var response = {
-        people: ["Tony", "Lisa", "Michael", "Ginger"],
+        // people: ["Tony", "Lisa", "Michael", "Ginger"],
         status: resp.status,
+        timeElapsed: resp['timeElapsed'],
         // req.query
         base64Str: resp['base64str']
     }
+
+    if (resp.status)
+        response.statusCode = 404;
 
     res.setHeader('Content-Type', 'application/json');
     res.json(response);
