@@ -1,9 +1,22 @@
 // a file to scrape a faculty courses assignments into a csv file
-const puppeteer = require('puppeteer');
-const MAINCONFIG = require('./config/mainconfig.js');
-const CREDS = require('./config/creds.js');
 
-module.exports = async function (zoom, lat, long) {
+
+module.exports = async function () {
+  // zoom, lat, long
+  // return {message:"test"};
+
+  // return new Promise((resolve, reject) => {
+  // doesnt work
+  // return {message:"test"};
+  // doesnt work
+  // return Promise.resolve({message:"test"});
+  // works
+  // return resolve({message:"test"});
+
+  const puppeteer = require('puppeteer');
+  const MAINCONFIG = require('./config/mainconfig.js');
+  const CREDS = require('./config/creds.js');
+  // let promise = new Promise((resolve, reject) => {
   var startTime, endTime;
   startTime = new Date();
   /** return time elapsed */
@@ -18,8 +31,9 @@ module.exports = async function (zoom, lat, long) {
     // console.log(seconds + " seconds");
     return "- in " + seconds + " seconds";
   }
+  return {message:"test"};
 
-  async function run() {
+  // async function run() {
     var scrape = {
       status: 200
     }
@@ -72,7 +86,7 @@ module.exports = async function (zoom, lat, long) {
       // convert image to base64 encoded string
       var base64str = base64_encode(mapPath + screenShot + '.png');
 
-      // fs.unlinkSync(mapPath + screenShot + '.png')
+      fs.unlinkSync(mapPath + screenShot + '.png')
 
       // console.log(base64str);
 
@@ -89,19 +103,26 @@ module.exports = async function (zoom, lat, long) {
       scrape.base64str = base64str
       // return base64str;
     } catch (error) {
+      console.log("failed")
       console.log(error)
       scrape.status = 500
       scrape.error = error;
       console.log(scrape)
       browser.close();
     }
+    console.log("resolving")
+    // return { message: "scrape" };
+    console.log(scrape.status)
+
     return scrape
-  }
+    // return Promise.resolve(scrape);
+    // resolve(scrape);
+  // }
 
 
 
-  run();
-
+  // await run();
+  // })
 }
 
 // module.exports.scraper = scraper
