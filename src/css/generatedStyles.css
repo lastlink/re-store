@@ -7,7 +7,7 @@ body {
     --web-view-ids: Web_1920___home;
 }
 
-#Web_1920___home * {
+#Web_1920___home {
     margin: 0;
     padding: 0;
 }

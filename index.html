@@ -72,15 +72,43 @@
                     </div>
                 </div>
             </div>
-            <div id="mobile">
-                <div id="m-menu">
+        </div>
+        <div id="mobile">
+            <div id="m-menu">
+            </div>
+            <div id="m-content">
+                <h2>What do you need?</h2>
+                <div class="formInput">
+                    <input type="checkbox" id="CUSTOMERS" value="CUSTOMERS" v-model="checkedNeeds">
 
+                    <label for="CUSTOMERS">CUSTOMERS</label>
                 </div>
-                <div id="m-content">
 
+                <div class="formInput">
+                    <input type="checkbox" id="OPPORTUNITIES" value="OPPORTUNITIES" v-model="checkedNeeds">
+                    <label for="OPPORTUNITIES">OPPORTUNITIES</label>
                 </div>
+
+                <div class="formInput">
+                    <input type="checkbox" id="SBA" value="SBA" v-model="checkedNeeds">
+                    <label for="SBA">SBA FUNDING RESOURCES</label>
+                </div>
+                <div class="formInput">
+
+                    <input type="checkbox" id="SUPPLIES" value="SUPPLIES" v-model="checkedNeeds">
+                    <label for="SUPPLIES">SUPPLIES</label>
+                </div>
+                <div class="formInput">
+                    <input type="checkbox" id="ALERTS" value="ALERTS" v-model="checkedNeeds">
+                    <label for="ALERTS">ALERTS</label>
+                </div>
+                <br>
+                <a class="button round" v-on:click.stop="request">Request</a>
+                <a class="button round" v-on:click.stop="offer">Offer</a>
+
             </div>
         </div>
+    </div>
 </body>
 <script src="./src/js/index.js"></script>
 
