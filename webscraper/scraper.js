@@ -108,7 +108,8 @@ module.exports = async function (zoom, lat, long) {
     // convert image to base64 encoded string
     var base64str = base64_encode(mapPath + screenShot + '.png');
 
-    // fs.unlinkSync(mapPath + screenShot + '.png')
+    // this deletes the files after saving the base64
+    fs.unlinkSync(mapPath + screenShot + '.png')
 
     // console.log(base64str);
 
