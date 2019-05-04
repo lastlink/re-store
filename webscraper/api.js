@@ -33,7 +33,13 @@ app.get("/scrape", async (req, res, next) => {
         console.log(resp.status)
 
     console.log("returning response")
-    console.log(resp)
+    var propValue;
+    for (var propName in resp) {
+
+        console.log(propName);
+    }
+    if (resp && !resp['base64str'])
+        console.log(resp)
 
     if (!resp) {
         resp = {
@@ -45,7 +51,7 @@ app.get("/scrape", async (req, res, next) => {
         people: ["Tony", "Lisa", "Michael", "Ginger"],
         status: resp.status,
         // req.query
-        base64Str: resp.base64Str
+        base64Str: resp['base64str']
     }
 
     res.setHeader('Content-Type', 'application/json');

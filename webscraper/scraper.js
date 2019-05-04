@@ -31,7 +31,7 @@ module.exports = async function () {
     // console.log(seconds + " seconds");
     return "- in " + seconds + " seconds";
   }
-  return {message:"test"};
+  // return {message:"test"};
 
   // async function run() {
     var scrape = {
@@ -42,6 +42,9 @@ module.exports = async function () {
       headless: MAINCONFIG.headless,
       args: ['--start-fullscreen', "--window-position=0,0"]
     });
+
+    // return {message:"test"};
+
     try {
 
 
@@ -113,6 +116,7 @@ module.exports = async function () {
     console.log("resolving")
     // return { message: "scrape" };
     console.log(scrape.status)
+    // return {message:"test"};
 
     return scrape
     // return Promise.resolve(scrape);
