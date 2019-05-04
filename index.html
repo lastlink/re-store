@@ -7,6 +7,7 @@
     <title>Home</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link href='./src/css/generatedStyles.css' rel='stylesheet' />
+    <link href='./src/css/menu.css' rel='stylesheet' />
     <link href='./src/css/styles.css' rel='stylesheet' />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
@@ -75,6 +76,32 @@
             </div>
         </div>
         <div id="mobile">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid" id="myTopnav">
+                    <div class="navbar-header">
+                        <a href="./index.html" class="active">Home</a>
+                        <a href="javascript:void(0);" class="navbar-toggle icon" data-toggle="collapse"
+                            data-target="#myNavbar" v-on:click="toggleMenu">
+                            <div class="fa fa-bars icon-bars"></div>
+                            <div class="fa fa-bars icon-bars"></div>
+                            <div class="fa fa-bars icon-bars"></div>
+
+                        </a>
+
+                        <!-- <a class="navbar-brand" href="#">Menu</a> -->
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li id="home" class="active"><a href="./index.html">Home</a></li>
+                            <li class=""><a href="./pages/findCustomers.html">Find Customers</a></li>
+                            <li class=""><a href="./pages/findCustomers.html">Find Customers</a></li>
+                            <li class=""><a href="./pages/findCustomers.html">Find Customers</a></li>
+                            <li class=""><a href="./pages/findCustomers.html">Find Customers</a></li>
+                            <li class=""><a href="./pages/findCustomers.html">Find Customers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
             <div id="m-menu">
             </div>
             <div id="m-content">

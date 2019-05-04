@@ -13,6 +13,14 @@ var app = new Vue({
         },
         offer: function (){
             console.log("request")
+        },
+        toggleMenu: function () {
+            var x = document.getElementById("myNavbar");
+            if (x.className === "collapse navbar-collapse") {
+              x.className = "navbar";
+            } else {
+              x.className = "collapse navbar-collapse";
+            }
         }
     }
 })

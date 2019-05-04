@@ -1,0 +1,120 @@
+/* <link rel="stylesheet" href="./css/small.css"> */
+.fa-bars {
+    width: 18px;
+    height: 2px;
+    background-color: black;
+    margin: 6px 0;
+}
+
+.navbar-collapse .navbar-nav{
+    display: none;
+}
+
+.navbar-header{
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+.navbar-header > a:not(.navbar-toggle){
+  float: left;
+  display: block;
+  color: #000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  /* height: 20px; */
+}
+
+.navbar-toggle {
+    padding: 10px 16px;
+}
+.navbar-toggle.icon{
+    float: right;
+    /* display: block; */
+}
+
+ul.navbar-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+ul.navbar-nav li a, ul.navbar-nav li input {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.navbar-header a:hover:not(.active), ul.navbar-nav li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+.navbar-header a:hover, ul.navbar-nav li a:hover {
+background-color: #111;
+}
+
+.navbar-header a.active, ul.navbar-nav li.active a {
+background-color: #4CAF50;
+}
+
+#home{
+    display: none;
+}
+
+ul.navbar-nav {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+        
+ul.navbar-nav li a {
+    float: left;
+    padding: 15px;
+}
+    
+div.content {margin-left: 0;}
+
+@media screen and (max-width: 400px) {
+    
+    ul.navbar-nav li a {
+        text-align: center;
+        float: none;
+    }
+}
+
+/* <link rel="stylesheet" media="screen and (min-width: 458px) and (max-width: 992px)" href="./css/medium.css"> */
+@media only screen and (min-width: 458px) and (max-width: 992px) {
+    .navbar-header{
+        display: none;
+    }
+    
+    .navbar-collapse .navbar-nav{
+        display: block;
+    }
+    
+    #home{
+        display: inline;
+    }
+}
+/* <link rel="stylesheet" media="screen and (min-width: 760px)" href="./css/large.css"> */
+@media only screen and (min-width: 760px) {
+    .navbar-header{
+        display: none;
+    }
+    
+    .navbar-collapse .navbar-nav{
+        display: block;
+    }
+    
+    #home{
+        display: inline;
+    }
+}
+/* <link rel="stylesheet" href="./css/styles.css"> */
