@@ -100,12 +100,15 @@
                     <a class="button round" v-on:click.stop="findCustomers">Go</a>
 
                 </div>
+                {{mapImage}}
+                {{testData}}
                 <img v-cloak v-if="mapImage" v-bind:src="'data:image/jpeg;base64,'+mapImage.encodedImage" />
 
             </div>
         </div>
     </div>
 </body>
+<script src="../src/js/tokens.js"></script>
 <script src="../src/js/index.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102829142-29"></script>
