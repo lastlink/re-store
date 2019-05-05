@@ -4,12 +4,13 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Re-store: Find Customers</title>
+    <title>Re-store | Resources</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link href='../src/css/generatedStyles.css' rel='stylesheet' />
     <link href='../src/css/menu.css' rel='stylesheet' />
     <link href='../src/css/styles.css' rel='stylesheet' />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
 </head>
 
 <body>
@@ -96,29 +97,22 @@
                 <h2>Re-Store</h2>
 
                 <h3>Resources:</h3>
-                    <input type="number" id="CUSTOMERS" v-model="zipcode">
-                    <a class="button round" v-on:click.stop="">Go</a>
+                <input type="number" id="CUSTOMERS" v-model="zipcode">
+                <a class="button round" v-on:click.stop="" :disabled="loading">Go</a>
                 <h3>Local Resources:</h3>
-
-                <div class="formInput">
-                    <label><strong>Name</strong>
-                    </label>
-                    sample name
-                    <br>
-                    <label><strong>Address</strong>
-                    </label>
-                    5000 5000 this is a smaple address, washington dc, USA
-                    <br>
-                    <br>
+                <div class="semipolar-spinner" v-if="loading" v-cloak>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
                 </div>
-                <div class="formInput">
-                    <label><strong>Name</strong>
-                    </label>
-                    sample name
-                    <br>
-                    <label><strong>Address</strong>
-                    </label>
-                    5000 5000 this is a smaple address, washington dc, USA
+                <div v-for="r in resources" class="formInput">
+                    <div v-for="(value, name) in r">
+                        <label><strong>{{name | capitalize}}:</strong>
+                        </label>
+                        {{value}}
+                    </div>
                     <br>
                 </div>
             </div>

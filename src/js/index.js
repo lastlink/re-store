@@ -1,4 +1,9 @@
 // const router = new VueRouter();
+Vue.filter('capitalize', function (value) {
+  if (!value) return ''
+  value = value.toString()
+  return value.charAt(0).toUpperCase() + value.slice(1)
+})
 
 var app = new Vue({
   el: '#Web_1920___home',
@@ -7,6 +12,7 @@ var app = new Vue({
     checkedNeeds: [],
     zipcode: null,
     errors: null,
+    loading: null,
     todos: [
       { text: 'Learn JavaScript' },
       { text: 'Learn Vue' },
@@ -27,6 +33,26 @@ var app = new Vue({
       } else
         location.href = "/pages/findCustomers.html?zipcode=" + this.zipcode;
 
+    },
+    resources: null,
+    getResources: function () {
+      this.loading = true;
+      this.errors = null;
+      this.$http.get("https://re-store.funktechno.com/iowa-json.php").then((response) => {
+        this.loading = false;  
+        console.log(response)
+        // this.message = response.data.message;
+        if (response.status == 200) {
+          this.resources = response.data
+        } else {
+          this.errors = "Failed to Load"
+        }
+      }).catch((error) => {
+        this.errors = "Failed to Retrieve Latitude and Longitude"
+        console.log(error)
+        this.loading = null;
+
+      });
     },
     navResources: function () {
       console.log(this.navResources.name + this.zipcode)
@@ -67,7 +93,7 @@ var app = new Vue({
 
     },
     getMapBase64(request) {
-      request = { "zip_code": "22303", "lat": 38.794399, "lng": -77.078869, "city": "Alexandria", "state": "VA", "timezone": { "timezone_identifier": "America/New_York", "timezone_abbr": "EDT", "utc_offset_sec": -14400, "is_dst": "T" }, "acceptable_city_names": [{ "city": "Jefferson Manor", "state": "VA" }, { "city": "Jefferson Mnr", "state": "VA" }] }
+      // request = { "zip_code": "22303", "lat": 38.794399, "lng": -77.078869, "city": "Alexandria", "state": "VA", "timezone": { "timezone_identifier": "America/New_York", "timezone_abbr": "EDT", "utc_offset_sec": -14400, "is_dst": "T" }, "acceptable_city_names": [{ "city": "Jefferson Manor", "state": "VA" }, { "city": "Jefferson Mnr", "state": "VA" }] }
       console.log("getting base64")
       console.log(request)
       // var data = null;
@@ -77,89 +103,52 @@ var app = new Vue({
       // updateImage = this.updateImage;
 
       console.log(this.testData)
+      this.loading = true;
+      this.errors = null;
 
       // xhr.withCredentials = true;
-      this.$http.get("https://scrape_re-store.serveo.net/scrape?zoom=15&lat=" + request.lat + "&long=" + request.long).then((response) => {
+      this.$http.get("https://scrape_re-store.serveo.net/scrape?zoom=15&lat=" + request.lat + "&long=" + request.lng).then((response) => {
         console.log(this.testData)
         console.log(response)
+        this.loading = false;
+
         // this.message = response.data.message;
         if (response.status == 200) {
           this.updateImage(response.data.base64Str)
+        }else {
+          this.errors = "Failed to load Map image try again"
         }
+      }).catch((error) => {
+        this.errors = "Failed to Retrieve Latitude and Longitude"
+        console.log(error)
+        this.loading = null;
       });
-      var test = "asdf"
-
-      // xhr.addEventListener("readystatechange", function () {
-      //   if (this.readyState === this.DONE) {
-      //     console.log("image returned")
-      //     console.log(this.testData)
-      //     // console.log(this.responseText);
-      //     try {
-      //       var response = JSON.parse(this.responseText)
-      //       console.log(response)
-      //       console.log(this.testData)
-      //       if (response.status == 200)
-      //         updateImage(response.base64Str)
-      //       // callback(response)
-      //     } catch (error) {
-      //       console.log(error)
-      //     }
-      //   }
-      // });
-
-      // xhr.open("GET", "https://scrape_re-store.serveo.net/scrape?zoom=15&lat=" + request.lat + "&long=" + request.long);
-
-      // xhr.send(data);
     },
     getLongLat(zipcode, callback = null) {
       console.log("retreiveing long lat for" + zipcode)
-
-      var data = null;
-
-      var xhr = new XMLHttpRequest();
-      // xhr.withCredentials = true;
-
+      this.loading = true;
+      this.errors = null;
       this.$http.get("https://www.zipcodeapi.com/rest/" + window.tokens.zipcodeapiToken + "/info.json/" + zipcode + "/degrees").then((response) => {
         console.log(this.testData)
         console.log(response)
 
         try {
-          // var response = JSON.parse(this.responseText)
           console.log(response)
-          // console.log(callback)
           if (callback == "getMapBase64")
             this.getMapBase64(response.data)
         } catch (error) {
+          this.loading = false;
+
+          this.errors = "Failed to Retrieve Latitude and Longitude"
+
           console.log(error)
         }
+      }).catch((error) => {
+        this.errors = "Failed to Retrieve Latitude and Longitude"
+        console.log(error)
+        this.loading = null;
+
       });
-
-      // xhr.addEventListener("readystatechange", function () {
-      //   if (this.readyState === this.DONE) {
-      //     console.log(this.responseText);
-      //     if (this.responseText) {
-
-      //       try {
-      //         var response = JSON.parse(this.responseText)
-      //         console.log(response)
-      //         // console.log(callback)
-      //         if(callback == "getMapBase64")
-      //           this.getMapBase64(response.base64Str)
-      //       } catch (error) {
-      //         console.log(error)
-      //       }
-
-      //     } else {
-      //       console.log("empty response")
-      //     }
-
-      //   }
-      // });
-
-      xhr.open("GET", "https://www.zipcodeapi.com/rest/" + window.tokens.zipcodeapiToken + "/info.json/" + zipcode + "/degrees");
-
-      xhr.send(data);
-      //promise
     },
     toggleMenu: function () {
       var x = document.getElementById("myNavbar");
@@ -172,7 +161,6 @@ var app = new Vue({
   },
   beforeMount() {
     // if zipcode then trigger map longlat
-    console.log(this.zipcode);
 
     var url_string = location.href; //window.location.href
     var url = new URL(url_string);
@@ -180,11 +168,20 @@ var app = new Vue({
 
     if (zipcode) {
       // skip this for now
-      if(url_string.indexOf("findCustomers")!=-1)
+      if (url_string.indexOf("findCustomers") != -1)
         this.getLongLat(zipcode, this.getMapBase64.name)
       // this.getMapBase64()
     }
 
-    // console.log(`this.$el doesn't exist yet, but it will soon!`)
+    switch (true) {
+      case (url_string.indexOf("resources") != -1):
+        this.getResources()
+        break;
+
+      default:
+        console.log("url not handled")
+        break;
+    }
+
   },
 })
