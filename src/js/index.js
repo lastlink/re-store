@@ -54,9 +54,9 @@ var app = new Vue({
           this.summary = true;
           console.log(response.data)
           var results = response.data
-          var item = results[Math.floor(Math.random() * results.length)];
+          var item = Math.max.apply(Math, results);//  results[Math.floor(Math.random() * results.length)];
 
-          this.matchPer = item == 0 ? 0 : 1 - (item / 100)
+          this.matchPer = item == 0 ? 0 : (item / 100)
         } else {
           this.errors = "Failed to calculate match"
         }
