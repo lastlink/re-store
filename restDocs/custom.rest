@@ -1,3 +1,4 @@
+# see ./settings.js for template for variables
 ### get iowa json
 GET https://re-store.funktechno.com/iowa-json.php HTTP/1.1
 
@@ -11,7 +12,7 @@ GET https://scrape_re-store.serveo.net/scrape?zoom=15&lat=38.9092&long=-77.0344 
 ### oauth
 GET {{url_oauth}}?otoken={{otoken}} HTTP/1.1
 
-###
+### use 1st value in array as % match and just display a % after submitting a request
 GET https://re-store.funktechno.com/python/pythonrunner.php HTTP/1.1
 
 ###
