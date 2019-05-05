@@ -128,9 +128,12 @@
                 </div>
                 <div v-else>
                     <!--<p>Request was {{ (matchPer*100) || '62'}}% match with the offers.</p>-->
-                    <p>Request was <script>
-                        Math.random()*30+10
-                    </script>% match with the offers.</p>
+                    <p>Request was <p id="percentage">
+                        <script>
+                        document.getElementById("percentage").innerHTML = Math.random()*30+10;
+                        </script>
+                    </p>
+                    % match with the offers.</p>
                     <a href=./acceptOffer.html>Best Match</a></br>
                     Other Matches</br>
                     <a href=./acceptOffer.html>Best Match</a></br>
