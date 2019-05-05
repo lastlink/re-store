@@ -1,6 +1,6 @@
 var express = require('express'),
     app = express(),
-    port = process.env.PORT || 3000;
+    port = process.env.PORT || 3333;
 
 var cors = require('cors');
 // app.use(cors({
@@ -8,7 +8,7 @@ var cors = require('cors');
 //   }));
 app.use(cors());
 app.listen(port, () => {
-    console.log("Server running on port http://localhost:3000");
+    console.log("Server running on port http://localhost:"+port);
 });
 
 app.get("/", (req, res, next) => {

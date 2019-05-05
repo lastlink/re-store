@@ -15,7 +15,7 @@ module.exports = async function (zoom, lat, long) {
 
   const puppeteer = require('puppeteer');
   const MAINCONFIG = require('./config/mainconfig.js');
-  const CREDS = require('./config/creds.js');
+  // const CREDS = require('./config/creds.js');
   // let promise = new Promise((resolve, reject) => {
   var startTime, endTime;
   startTime = new Date();
@@ -40,7 +40,7 @@ module.exports = async function (zoom, lat, long) {
 
   const browser = await puppeteer.launch({
     headless: MAINCONFIG.headless,
-    args: ['--start-fullscreen', "--window-position=0,0"]
+    args: ["--ash-host-window-bounds=1920x1080", "--window-size=1920,1048", "--window-position=0,0"]
   });
 
   // return {message:"test"};
