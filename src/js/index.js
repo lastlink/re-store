@@ -124,6 +124,18 @@ var app = new Vue({
         this.loading = null;
       });
     },
+    attemptOauth(searchParams) {
+      var code = searchParams.get("code")
+      if(!code)
+      {
+        this.errors = "Missing oauth token";
+        return;
+      }
+
+      console.log(code)
+      // attempt to use token
+
+    },
     getLongLat(zipcode, callback = null) {
       console.log("retreiveing long lat for" + zipcode)
       this.loading = true;
@@ -163,6 +175,7 @@ var app = new Vue({
     // if zipcode then trigger map longlat
 
     var url_string = location.href; //window.location.href
+    var addString = url_string.indexOf("authorized") != -1 ? "dist/" : "";
     var url = new URL(url_string);
     var zipcode = this.zipcode = url.searchParams.get("zipcode");
 
@@ -176,6 +189,9 @@ var app = new Vue({
     switch (true) {
       case (url_string.indexOf("resources") != -1):
         this.getResources()
+        break;
+      case (url_string.indexOf("authorized") != -1):
+        this.attemptOauth(url.searchParams)
         break;
 
       default:
