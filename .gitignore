@@ -10,6 +10,9 @@ dist
 dev
 webscraper/package-lock.json
 
+#db credentials
+dbcredentials.py
+
 #Pycharm files
 .idea/*
 
