@@ -6,6 +6,7 @@
   "scripts": {
     "start": "parcel serve index.html -d dev",
     "build": "parcel watch index.html --public-url /dist/",
+    "build-prod": "parcel watch index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

@@ -136,10 +136,10 @@ var app = new Vue({
         this.loading = null;
         if (response.status == 200) {
           localStorage.authorize = response.data
-          if (location.pathname.indexOf("localhost") == -1) {
-            location.href = "/dist/pages/offers.html";
-          } else
-            location.href = "/pages/offers.html";
+          // if (location.pathname.indexOf("localhost") == -1) {
+          //   location.href = "/dist/pages/offers.html";
+          // } else
+          location.href = "/pages/offers.html";
         } else {
           localStorage.authorize = null
 
