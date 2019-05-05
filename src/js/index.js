@@ -12,6 +12,7 @@ var app = new Vue({
       { text: 'Learn Vue' },
       { text: 'Build something awesome' }
     ],
+    mapImage: null,
     navFindCustomers: function () {
       console.log(this.navFindCustomers.name + this.zipcode)
       if (!this.zipcode) {
@@ -36,6 +37,10 @@ var app = new Vue({
     offer: function () {
       console.log("request")
     },
+    getLongLat(zipcode){
+      console.log("retreiveing long lat for"+zipcode)
+      //promise
+    },
     toggleMenu: function () {
       var x = document.getElementById("myNavbar");
       if (x.className === "collapse navbar-collapse") {
@@ -44,5 +49,19 @@ var app = new Vue({
         x.className = "collapse navbar-collapse";
       }
     }
-  }
+  },
+  beforeMount() {
+    // if zipcode then trigger map longlat
+    console.log(this.zipcode);
+
+    var url_string = location.href; //window.location.href
+    var url = new URL(url_string);
+    var zipcode = this.zipcode = url.searchParams.get("zipcode");
+
+    if(zipcode){
+      this.getLongLat(zipcode)
+    }
+
+    // console.log(`this.$el doesn't exist yet, but it will soon!`)
+  },
 })

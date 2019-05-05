@@ -92,10 +92,15 @@
             <div id="m-menu">
             </div>
             <div id="m-content">
-                <h2>SBA Funding
-                    <ol>
-                        <li>Rescource</li>
-                    </ol>
+                <div class="errors" v-if="errors"><span v-cloak>{{errors}}</span></div>
+
+                <h2>Find customers</h2>
+                <div class="formInput">
+                    <input type="number" id="CUSTOMERS" v-model="zipcode">
+                    <a class="button round" v-on:click.stop="findCustomers">Go</a>
+
+                </div>
+                <img v-cloak v-if="mapImage" v-bind:src="'data:image/jpeg;base64,'+mapImage.encodedImage" />
 
             </div>
         </div>
