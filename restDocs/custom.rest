@@ -15,4 +15,10 @@ GET {{url_oauth}}?otoken={{otoken}} HTTP/1.1
 ### use 1st value in array as % match and just display a % after submitting a request
 GET https://re-store.funktechno.com/python/pythonrunner.php HTTP/1.1
 
+### get requests
+GET https://re-store.funktechno.com/api/get-requests.php HTTP/1.1
+
+### get offers
+GET https://re-store.funktechno.com/api/get-offers.php HTTP/1.1
+
 ###
