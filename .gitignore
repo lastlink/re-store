@@ -15,6 +15,7 @@ dbcredentials.py
 
 #Pycharm files
 .idea/*
+.idea/vcs.xml
 
 backups
 src/js/tokens.js
