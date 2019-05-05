@@ -37,8 +37,41 @@ var app = new Vue({
     offer: function () {
       console.log("request")
     },
-    getLongLat(zipcode){
-      console.log("retreiveing long lat for"+zipcode)
+    getMapBase64(request) {
+      console.log("getting base64")
+      console.log(request)
+    },
+    getLongLat(zipcode, callback = null) {
+      console.log("retreiveing long lat for" + zipcode)
+
+      var data = null;
+
+      var xhr = new XMLHttpRequest();
+      // xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === this.DONE) {
+          console.log(this.responseText);
+          if (this.responseText) {
+
+            try {
+              var response = JSON.parse(this.responseText)
+              console.log(response)
+              callback(response)
+            } catch (error) {
+              console.log(error)
+            }
+
+          } else {
+            console.log("empty response")
+          }
+
+        }
+      });
+
+      xhr.open("GET", "https://www.zipcodeapi.com/rest/" + window.tokens.zipcodeapiToken + "/info.json/" + zipcode + "/degrees");
+
+      xhr.send(data);
       //promise
     },
     toggleMenu: function () {
@@ -58,8 +91,8 @@ var app = new Vue({
     var url = new URL(url_string);
     var zipcode = this.zipcode = url.searchParams.get("zipcode");
 
-    if(zipcode){
-      this.getLongLat(zipcode)
+    if (zipcode) {
+      this.getLongLat(zipcode, this.getMapBase64)
     }
 
     // console.log(`this.$el doesn't exist yet, but it will soon!`)
