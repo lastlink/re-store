@@ -10,6 +10,7 @@
     <link href='../src/css/menu.css' rel='stylesheet' />
     <link href='../src/css/styles.css' rel='stylesheet' />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
 </head>
 
 <body>
@@ -95,17 +96,19 @@
                 <div class="errors" v-if="errors"><span v-cloak>{{errors}}</span></div>
 
                 <h2>Find customers</h2>
-                <div class="formInput">
+                <div class="">
                     <input type="number" id="CUSTOMERS" v-model="zipcode">
-                    <a class="button round" v-on:click.stop="findCustomers">Go</a>
+                    <a class="button round" v-on:click.stop="getLongLat(zipcode,'getMapBase64')">Go</a>
 
                 </div>
-                <img v-cloak v-if="mapImage" v-bind:src="'data:image/jpeg;base64,'+mapImage.encodedImage" />
+                <!-- {{mapImage}} -->
+                <img width="100%" v-cloak v-if="mapImage" v-bind:src="'data:image/jpeg;base64,'+mapImage.encodedImage" />
 
             </div>
         </div>
     </div>
 </body>
+<script src="../src/js/tokens.js"></script>
 <script src="../src/js/index.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102829142-29"></script>
