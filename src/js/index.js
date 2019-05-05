@@ -230,8 +230,47 @@ var app = new Vue({
 
       });
     },
+    offers: null,
+    requests: null,
+    getRequests: function () {
+      console.log(this.getOffers.name)
+      this.loading = true;
+      this.errors = null;
+      this.$http.get("https://re-store.funktechno.com/api/get-requests.php").then((response) => {
+        this.loading = false;
+        console.log(response)
+        // this.message = response.data.message;
+        if (response.status == 200) {
+          this.requests = response.data
+        } else {
+          this.errors = "Failed to Load"
+        }
+      }).catch((error) => {
+        this.errors = "Failed to Retrieve LRequests"
+        console.log(error)
+        this.loading = null;
+
+      });
+    },
     getOffers: function () {
       console.log(this.getOffers.name)
+      this.loading = true;
+      this.errors = null;
+      this.$http.get("https://re-store.funktechno.com/api/get-offers.php").then((response) => {
+        this.loading = false;
+        console.log(response)
+        // this.message = response.data.message;
+        if (response.status == 200) {
+          this.offers = response.data
+        } else {
+          this.errors = "Failed to Load"
+        }
+      }).catch((error) => {
+        this.errors = "Failed to Retrieve Offers"
+        console.log(error)
+        this.loading = null;
+
+      });
     },
     toggleMenu: function () {
       var x = document.getElementById("myNavbar");

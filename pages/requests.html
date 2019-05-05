@@ -117,15 +117,10 @@
                                 <td>Address</td>
                                 <td>Offer</td>
                             </thead>
-                            <tr>
-                                <td>Name1</td>
-                                <td>Address1</td>
-                                <td>Offer1</td>
-                            </tr>
-                            <tr>
-                                <td>Name2</td>
-                                <td>Address2</td>
-                                <td>Offer2</td>
+                            <tr v-for="p in offers">
+                                <td>{{p.visaMerchantName}}</td>
+                                <td>{{p.merchantStreetAddress}}</td>
+                                <td>{{p.offer}}</td>
                             </tr>
                         </table>
                     </div>
