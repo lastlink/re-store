@@ -20,3 +20,4 @@ dbcredentials.py
 backups
 src/js/tokens.js
 package-lock.json
+.DS_Store
