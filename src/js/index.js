@@ -39,17 +39,18 @@ var app = new Vue({
     },
     requestData: {},
     resources: null,
-    createOffer: function () {
+    createProposal: function () {
 
       console.log(this.requestData)
       var requestData = this.requestData
-      if (!(requestData.merchantCategoryCodeDesc && requestData.merchantStreetAddress && requestData.offer && requestData.visaMerchantName)) {
-        this.errors = "Please fill out all fields first.";
-        return;
-      }
+      // if (!(requestData.merchantCategoryCodeDesc && requestData.merchantStreetAddress && requestData.offer && requestData.visaMerchantName)) {
+      //   this.errors = "Please fill out all fields first.";
+      //   return;
+      // }
       this.errors = null;
       console.log(this.createOffer.name)
 
+      location.href = "https://re-store.funktechno.com/contract.html"
     },
     calculateNeedFit: function () {
       if (!this.description) {
