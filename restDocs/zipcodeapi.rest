@@ -1,0 +1,6 @@
+@zipcode=22303
+
+### get info
+GET https://www.zipcodeapi.com/rest/{{zipcodeapiToken}}/info.json/{{zipcode}}/degrees HTTP/1.1
+
+###
