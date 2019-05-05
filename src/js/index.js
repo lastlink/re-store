@@ -37,9 +37,44 @@ var app = new Vue({
     offer: function () {
       console.log("request")
     },
+    testData: null,
+    updateImage(base64) {
+      console.log("updating image")
+      this.mapImage = {
+        encodedImage: base64
+      }
+      console.log("finished")
+      console.log(this.mapImage)
+      this.testData="hello";
+    },
     getMapBase64(request) {
+      request = { "zip_code": "22303", "lat": 38.794399, "lng": -77.078869, "city": "Alexandria", "state": "VA", "timezone": { "timezone_identifier": "America/New_York", "timezone_abbr": "EDT", "utc_offset_sec": -14400, "is_dst": "T" }, "acceptable_city_names": [{ "city": "Jefferson Manor", "state": "VA" }, { "city": "Jefferson Mnr", "state": "VA" }] }
       console.log("getting base64")
       console.log(request)
+      var data = null;
+
+      var xhr = new XMLHttpRequest();
+
+      updateImage = this.updateImage;
+      // xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === this.DONE) {
+          console.log(this.responseText);
+          try {
+            var response = JSON.parse(this.responseText)
+            console.log(response)
+            updateImage(response.base64Str)
+            // callback(response)
+          } catch (error) {
+            console.log(error)
+          }
+        }
+      });
+
+      xhr.open("GET", "https://scrape_re-store.serveo.net/scrape?zoom=15&lat=" + request.lat + "&long=" + request.long);
+
+      xhr.send(data);
     },
     getLongLat(zipcode, callback = null) {
       console.log("retreiveing long lat for" + zipcode)
@@ -92,7 +127,9 @@ var app = new Vue({
     var zipcode = this.zipcode = url.searchParams.get("zipcode");
 
     if (zipcode) {
-      this.getLongLat(zipcode, this.getMapBase64)
+      // skip this for now
+      // this.getLongLat(zipcode, this.getMapBase64)
+      this.getMapBase64()
     }
 
     // console.log(`this.$el doesn't exist yet, but it will soon!`)

@@ -2,6 +2,11 @@ var express = require('express'),
     app = express(),
     port = process.env.PORT || 3000;
 
+var cors = require('cors');
+// app.use(cors({
+//     origin: 'http://yourapp.com'
+//   }));
+app.use(cors());
 app.listen(port, () => {
     console.log("Server running on port http://localhost:3000");
 });
