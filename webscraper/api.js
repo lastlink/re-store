@@ -2,13 +2,26 @@ var express = require('express'),
     app = express(),
     port = process.env.PORT || 3333;
 
+var morgan = require('morgan')
+var path = require('path')
+var rfs = require('rotating-file-stream')
+
+// create a rotating write stream
+var accessLogStream = rfs('access.log', {
+    interval: '1d', // rotate daily
+    path: path.join(__dirname, 'log')
+})
+
 var cors = require('cors');
 // app.use(cors({
 //     origin: 'http://yourapp.com'
 //   }));
 app.use(cors());
+
+app.use(morgan('combined', { stream: accessLogStream }))
+
 app.listen(port, () => {
-    console.log("Server running on port http://localhost:"+port);
+    console.log("Server running on port http://localhost:" + port);
 });
 
 app.get("/", (req, res, next) => {
