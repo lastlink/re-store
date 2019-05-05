@@ -68,7 +68,16 @@ var app = new Vue({
           this.summary = true;
           console.log(response.data)
           var results = response.data
+          if(!results || !results.length){
+            this.matchPer = .62
+            return;
+          }
+          // if(results)
           var item = Math.max.apply(Math, results);//  results[Math.floor(Math.random() * results.length)];
+          if (!item) {
+            this.matchPer = .62
+            return;
+          }
 
           this.matchPer = item == 0 ? 0 : (item / 100)
         } else {
