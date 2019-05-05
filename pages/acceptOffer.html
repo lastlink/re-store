@@ -105,24 +105,28 @@
                     <div class="ring"></div>
                     <div class="ring"></div>
                 </div>
-                <textarea rows="4" cols="40" placeholder="Offer" v-model="requestData.offer"></textarea><br>
+                <textarea placeholder="We have a wen 56200i 2000 watt inverter for rent" rows="4" cols="40"
+                    placeholder="Offer" v-model="requestData.offer"></textarea><br>
                 <label>Name</label>
-                <input type="text" id="visaMerchantName" v-model="requestData.visaMerchantName">
-            </div><br><br>
-            <label>Merchant Type</label>
-            <input type="text" id="merchantCategoryCodeDesc" v-model="requestData.merchantCategoryCodeDesc"><br><br>
-            <label>Address</label>
-            <input type="text" id="merchantStreetAddress" v-model="requestData.merchantStreetAddress"><br><br>
-            <label>Email</label>
-            <input type="text" id="Email"><br><br>
-            <label>website</label>
-            <input type="text" id="website"><br>
-            <br>
-            <a class="button round" v-on:click.stop="createOffer">Create Proposal</a>
+                <input type="text" id="visaMerchantName" placeholder="Davenport School of Yoga"
+                    v-model="requestData.visaMerchantName">
+                <br><br>
+                <label>Merchant Type</label>
+                <input type="text" id="merchantCategoryCodeDesc" placeholder="EXERCISE"
+                    v-model="requestData.merchantCategoryCodeDesc"><br><br>
+                <label>Address</label>
+                <input type="text" id="merchantStreetAddress" placeholder="735 Federal St"
+                    v-model="requestData.merchantStreetAddress"><br><br>
+                <label>Email</label>
+                <input type="text" id="Email" placeholder="admin@dpyogascool.com"><br><br>
+                <label>Phone</label>
+                <input type="text" id="phone" placeholder="(563) 322-5354"><br>
+                <br>
+                <a class="button round" v-on:click.stop="createOffer">Create Proposal</a>
 
 
+            </div>
         </div>
-    </div>
     </div>
 </body>
 <script src="../src/js/index.js"></script>
