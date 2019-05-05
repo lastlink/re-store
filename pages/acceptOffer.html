@@ -96,19 +96,19 @@
                 <h2>Re-Store</h2>
 
                 <h4 align="left">Connect:</h4>
-                <textarea rows="4" cols="40" placeholder="Offer"></textarea><br>
+                <textarea rows="4" cols="40" placeholder="Offer" v-model="request.offer"></textarea><br>
                     <label>Name</label>
-                <input type="text" id="CUSTOMERS" v-model="zipcode"></div><br><br>
+                <input type="text" id="visaMerchantName" v-model="request.visaMerchantName"></div><br><br>
                     <label>Merchant Type</label>
-                    <input type="text" id="CUSTOMERS" v-model="zipcode"><br><br>
+                    <input type="text" id="merchantCategoryCodeDesc" v-model="request.merchantCategoryCodeDesc"><br><br>
                     <label>Address</label>
-                    <input type="text" id="CUSTOMERS" v-model="zipcode"><br><br>
+                    <input type="text" id="merchantStreetAddress" v-model="request.merchantStreetAddress"><br><br>
                     <label>Email</label>
-                    <input type="text" id="CUSTOMERS" v-model="zipcode"><br><br>
+                    <input type="text" id="Email" ><br><br>
                     <label>website</label>
-                    <input type="text" id="CUSTOMERS" v-model="zipcode"><br>
+                    <input type="text" id="website" ><br>
                 <br>
-                <a class="button round" v-on:click.stop="navAlerts">Create Proposal</a>
+                <a class="button round" v-on:click.stop="createOffer">Create Proposal</a>
 
 
             </div>
