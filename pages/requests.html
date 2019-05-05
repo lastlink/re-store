@@ -95,25 +95,26 @@
                 <div class="errors" v-if="errors"><span v-cloak>{{errors}}</span></div>
                 <h2>Re-Store</h2>
 
-                <h4 align="left">Connect:</h4>
-                <div class="formInput">
-                    This is the offer which the user likes give a brief description about what the offer is
-                    and some merchant details below it
-                </div>
-                    <label>Name</label>
-                <input type="text" id="CUSTOMERS" v-model="zipcode"></div><br>
-                    <label>Merchant Type</label>
-                    <input type="text" id="CUSTOMERS" v-model="zipcode"><br>
-                    <label>Address</label>
-                    <input type="text" id="CUSTOMERS" v-model="zipcode"><br>
-                    <label>Email</label>
-                    <input type="text" id="CUSTOMERS" v-model="zipcode"><br>
-                    <label>website</label>
-                    <input type="text" id="CUSTOMERS" v-model="zipcode">
-                <br>
-                <a class="button round" v-on:click.stop="navAlerts">Create Proposal</a>
-
-
+                <h4 align="left">What do you need?</h4>
+                <textarea rows="4" cols="40" placeholder="Enter your needs to kick start your business"></textarea><br>
+                <a class="button round" v-on:click.stop="navAlerts">submit</a><br><br>
+                <table border="1" align="center" width="90%">
+                    <thead>
+                        <td>Name</td>
+                        <td>Address</td>
+                        <td>Offer</td>
+                    </thead>
+                    <tr>
+                        <td>Name1</td>
+                        <td>Address1</td>
+                        <td>Offer1</td>
+                    </tr>
+                    <tr>
+                        <td>Name2</td>
+                        <td>Address2</td>
+                        <td>Offer2</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
