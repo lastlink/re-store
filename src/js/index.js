@@ -39,7 +39,7 @@ var app = new Vue({
       this.loading = true;
       this.errors = null;
       this.$http.get("https://re-store.funktechno.com/iowa-json.php").then((response) => {
-        this.loading = false;  
+        this.loading = false;
         console.log(response)
         // this.message = response.data.message;
         if (response.status == 200) {
@@ -115,7 +115,7 @@ var app = new Vue({
         // this.message = response.data.message;
         if (response.status == 200) {
           this.updateImage(response.data.base64Str)
-        }else {
+        } else {
           this.errors = "Failed to load Map image try again"
         }
       }).catch((error) => {
@@ -126,11 +126,38 @@ var app = new Vue({
     },
     attemptOauth(searchParams) {
       var code = searchParams.get("code")
-      if(!code)
-      {
+      if (!code) {
         this.errors = "Missing oauth token";
         return;
       }
+      this.loading = true;
+      this.$http.get("https://re-store.funktechno.com/sso/oauth.php?otoken=" + code).then((response) => {
+        console.log(response)
+        this.loading = null;
+        if (response.status == 200) {
+          localStorage.authorize = response.data
+          if (location.pathname.indexOf("localhost") == -1) {
+            location.href = "/dist/pages/offers.html";
+          } else
+            location.href = "/pages/offers.html";
+        } else {
+          localStorage.authorize = null
+
+          this.errors = "Authorization token failed"
+        }
+      }).catch((error) => {
+        this.loading = null;
+        localStorage.authorize = null
+        if (error.status == 400 && error.data.error_description) {
+          this.errors = error.data.error_description
+          return;
+        }
+        this.errors = "Failed to sign in using authorize.net"
+        console.log(error)
+      });
+
+      // xhr.open("GET", "https://re-store.funktechno.com/sso/oauth.php?otoken=60gHMG");
+
 
       console.log(code)
       // attempt to use token
