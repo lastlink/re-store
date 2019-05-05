@@ -48,7 +48,7 @@ var app = new Vue({
       //   return;
       // }
       this.errors = null;
-      console.log(this.createOffer.name)
+      console.log(this.createProposal.name)
 
       location.href = "https://re-store.funktechno.com/contract.html"
     },
