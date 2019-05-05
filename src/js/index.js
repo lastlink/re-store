@@ -37,44 +37,67 @@ var app = new Vue({
     offer: function () {
       console.log("request")
     },
-    testData: null,
+    testData: "not hello",
     updateImage(base64) {
       console.log("updating image")
+      // console.log(app.data.testData)
+      console.log(this.testData)
+      this.testData = "hello";
+      // app.data.testData="hello"
+      // console.log(app.data.testData)
+
+      console.log(this.testData)
       this.mapImage = {
         encodedImage: base64
       }
       console.log("finished")
       console.log(this.mapImage)
-      this.testData="hello";
+
     },
     getMapBase64(request) {
       request = { "zip_code": "22303", "lat": 38.794399, "lng": -77.078869, "city": "Alexandria", "state": "VA", "timezone": { "timezone_identifier": "America/New_York", "timezone_abbr": "EDT", "utc_offset_sec": -14400, "is_dst": "T" }, "acceptable_city_names": [{ "city": "Jefferson Manor", "state": "VA" }, { "city": "Jefferson Mnr", "state": "VA" }] }
       console.log("getting base64")
       console.log(request)
-      var data = null;
+      // var data = null;
 
-      var xhr = new XMLHttpRequest();
+      // var xhr = new XMLHttpRequest();
 
-      updateImage = this.updateImage;
+      // updateImage = this.updateImage;
+
+      console.log(this.testData)
+
       // xhr.withCredentials = true;
-
-      xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === this.DONE) {
-          console.log(this.responseText);
-          try {
-            var response = JSON.parse(this.responseText)
-            console.log(response)
-            updateImage(response.base64Str)
-            // callback(response)
-          } catch (error) {
-            console.log(error)
-          }
+      this.$http.get("https://scrape_re-store.serveo.net/scrape?zoom=15&lat=" + request.lat + "&long=" + request.long).then((response) => {
+        console.log(this.testData)
+        console.log(response)
+        // this.message = response.data.message;
+        if (response.status == 200) {
+          this.updateImage(response.data.base64Str)
         }
       });
+      var test = "asdf"
 
-      xhr.open("GET", "https://scrape_re-store.serveo.net/scrape?zoom=15&lat=" + request.lat + "&long=" + request.long);
+      // xhr.addEventListener("readystatechange", function () {
+      //   if (this.readyState === this.DONE) {
+      //     console.log("image returned")
+      //     console.log(this.testData)
+      //     // console.log(this.responseText);
+      //     try {
+      //       var response = JSON.parse(this.responseText)
+      //       console.log(response)
+      //       console.log(this.testData)
+      //       if (response.status == 200)
+      //         updateImage(response.base64Str)
+      //       // callback(response)
+      //     } catch (error) {
+      //       console.log(error)
+      //     }
+      //   }
+      // });
 
-      xhr.send(data);
+      // xhr.open("GET", "https://scrape_re-store.serveo.net/scrape?zoom=15&lat=" + request.lat + "&long=" + request.long);
+
+      // xhr.send(data);
     },
     getLongLat(zipcode, callback = null) {
       console.log("retreiveing long lat for" + zipcode)
@@ -84,25 +107,42 @@ var app = new Vue({
       var xhr = new XMLHttpRequest();
       // xhr.withCredentials = true;
 
-      xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === this.DONE) {
-          console.log(this.responseText);
-          if (this.responseText) {
+      this.$http.get("https://www.zipcodeapi.com/rest/" + window.tokens.zipcodeapiToken + "/info.json/" + zipcode + "/degrees").then((response) => {
+        console.log(this.testData)
+        console.log(response)
 
-            try {
-              var response = JSON.parse(this.responseText)
-              console.log(response)
-              callback(response)
-            } catch (error) {
-              console.log(error)
-            }
-
-          } else {
-            console.log("empty response")
-          }
-
+        try {
+          // var response = JSON.parse(this.responseText)
+          console.log(response)
+          // console.log(callback)
+          if (callback == "getMapBase64")
+            this.getMapBase64(response.data)
+        } catch (error) {
+          console.log(error)
         }
       });
+
+      // xhr.addEventListener("readystatechange", function () {
+      //   if (this.readyState === this.DONE) {
+      //     console.log(this.responseText);
+      //     if (this.responseText) {
+
+      //       try {
+      //         var response = JSON.parse(this.responseText)
+      //         console.log(response)
+      //         // console.log(callback)
+      //         if(callback == "getMapBase64")
+      //           this.getMapBase64(response.base64Str)
+      //       } catch (error) {
+      //         console.log(error)
+      //       }
+
+      //     } else {
+      //       console.log("empty response")
+      //     }
+
+      //   }
+      // });
 
       xhr.open("GET", "https://www.zipcodeapi.com/rest/" + window.tokens.zipcodeapiToken + "/info.json/" + zipcode + "/degrees");
 
@@ -128,8 +168,8 @@ var app = new Vue({
 
     if (zipcode) {
       // skip this for now
-      // this.getLongLat(zipcode, this.getMapBase64)
-      this.getMapBase64()
+      this.getLongLat(zipcode, this.getMapBase64.name)
+      // this.getMapBase64()
     }
 
     // console.log(`this.$el doesn't exist yet, but it will soon!`)
