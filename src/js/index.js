@@ -19,6 +19,7 @@ var app = new Vue({
       { text: 'Build something awesome' }
     ],
     mapImage: null,
+    authorize: null,
     navFindCustomers: function () {
       console.log(this.navFindCustomers.name + this.zipcode)
       if (!this.zipcode) {
@@ -124,6 +125,12 @@ var app = new Vue({
         this.loading = null;
       });
     },
+    clearAuthorize() {
+      this.authorize = localStorage.authorize = null;
+      this.loading = true;
+      // similate delay to not accidentally click on auth btn
+      setTimeout(function () { this.loading = false; }.bind(this), 3000)
+    },
     attemptOauth(searchParams) {
       var code = searchParams.get("code")
       if (!code) {
@@ -133,9 +140,10 @@ var app = new Vue({
       this.loading = true;
       this.$http.get("https://re-store.funktechno.com/sso/oauth.php?otoken=" + code).then((response) => {
         console.log(response)
+        console.log(response.data)
         this.loading = null;
         if (response.status == 200) {
-          localStorage.authorize = response.data
+          localStorage.authorize = JSON.stringify(response.data)
           // if (location.pathname.indexOf("localhost") == -1) {
           //   location.href = "/dist/pages/offers.html";
           // } else
@@ -211,6 +219,10 @@ var app = new Vue({
       if (url_string.indexOf("findCustomers") != -1)
         this.getLongLat(zipcode, this.getMapBase64.name)
       // this.getMapBase64()
+    }
+
+    if (localStorage.authorize) {
+      this.authorize = JSON.parse(localStorage.authorize)
     }
 
     switch (true) {

@@ -97,7 +97,19 @@
 
                 <h4 align="left">What are you Offering?</h4>
                 <textarea rows="4" cols="40" placeholder="Tell us more about what you are offering"></textarea><br>
-                <a href="https://sandbox.authorize.net/oauth/authorize?sub=oauth&client_id=kbQv0P5C2N&scope=read,write&redirect_uri=https://re-store.funktechno.com/sso/authorized.html">Authorize .net to validate</a></li>
+                <div class="semipolar-spinner" v-if="loading" v-cloak>
+                        <div class="ring"></div>
+                        <div class="ring"></div>
+                        <div class="ring"></div>
+                        <div class="ring"></div>
+                        <div class="ring"></div>
+                    </div>
+                <div v-if="!authorize && !loading">
+                        <a href="https://sandbox.authorize.net/oauth/authorize?sub=oauth&client_id=kbQv0P5C2N&scope=read,write&redirect_uri=http://localhost:1234/sso/authorized.html">Authorize .net to validate</a></li>
+                </div>
+                <div v-else-if="!loading">
+                        <a class="button round" v-on:click.stop="clearAuthorize">Log Out</a><br><br>
+                </div>
 
 
             </div>
