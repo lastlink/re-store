@@ -5,7 +5,7 @@ module.exports = {
 	},
 	scrape: {
 	},
-	mapUrl: "https://re-store.funktechno.com/gis/index.html#15/38.9092/-77.0344",
+	mapUrl: "https://re-store.funktechno.com/gis/index.html",
 	headless: false,
 	closeBrowser: false
 }

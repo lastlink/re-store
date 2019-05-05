@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Re-store: Find Customers</title>
+    <title>Re-store | Find Customers</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link href='../src/css/generatedStyles.css' rel='stylesheet' />
     <link href='../src/css/menu.css' rel='stylesheet' />
@@ -100,6 +100,13 @@
                     <input type="number" id="CUSTOMERS" v-model="zipcode">
                     <a class="button round" v-on:click.stop="getLongLat(zipcode,'getMapBase64')">Go</a>
 
+                </div>
+                <div class="semipolar-spinner" v-if="loading" v-cloak>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
                 </div>
                 <!-- {{mapImage}} -->
                 <img width="100%" v-cloak v-if="mapImage" v-bind:src="'data:image/jpeg;base64,'+mapImage.encodedImage" />
