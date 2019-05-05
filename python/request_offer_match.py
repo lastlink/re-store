@@ -1,20 +1,24 @@
-#!/usr/bin/python
+import csv
 import nltk
-nltk.download('WordNetLemmatizer')
-nltk.download('wordnet')
+# nltk.download('punkt')
+# nltk.download('wordnet')
+# not needed and missing
+# nltk.download('WordNetLemmatizer')
+
 from nltk.stem import WordNetLemmatizer
 wordnet_lemmatizer = WordNetLemmatizer()
 
 from nltk.corpus import wordnet
-from dbcredentials import user,passwd,db
+from nltk.stem import WordNetLemmatizer
 
 lemmatizer = WordNetLemmatizer()
 
 
+#!/usr/bin/python
 import MySQLdb
 
 def main():
-    db = MySQLdb.connect(host="localhost",    # your host, usually localhost
+      db = MySQLdb.connect(host="localhost",    # your host, usually localhost
                          user=user,         # your username
                          passwd=passwd,  # your password
                          db=db)        # name of the data base
@@ -36,6 +40,8 @@ def main():
     for row in cur_req:
         result = req_offer_match(row)
         print(result)
+    db.close()
+
     return result
 
 # request = "looking for flour, cream, eggs, dairy, gasoline"
@@ -78,4 +84,4 @@ def similar_percent(list1, list2):
     final_result = {"match percent":words_percentage}
     return final_result
 
-db.close()
+main()
