@@ -12,3 +12,6 @@ GET https://scrape_re-store.serveo.net/scrape?zoom=15&lat=38.9092&long=-77.0344 
 GET {{url_oauth}}?otoken={{otoken}} HTTP/1.1
 
 ###
+GET https://re-store.funktechno.com/python/pythonrunner.php HTTP/1.1
+
+###
