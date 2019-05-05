@@ -30,6 +30,18 @@ var app = new Vue({
     },
     navResources: function () {
       console.log(this.navResources.name + this.zipcode)
+      console.log(this.navFindCustomers.name + this.zipcode)
+      if (!this.zipcode) {
+        this.errors = "Missing zipcode";
+        return
+      }
+      this.errors = null;
+
+      // router.go({ path: 'path/findCustomers.html', query: { zipcode: this.zipcode } })
+      if (location.pathname.indexOf("dist") != -1) {
+        location.href = "/dist/pages/resources.html?zipcode=" + this.zipcode;
+      } else
+        location.href = "/pages/resources.html?zipcode=" + this.zipcode;
     },
     request: function () {
       console.log("request")
@@ -168,7 +180,8 @@ var app = new Vue({
 
     if (zipcode) {
       // skip this for now
-      this.getLongLat(zipcode, this.getMapBase64.name)
+      if(url_string.indexOf("findCustomers")!=-1)
+        this.getLongLat(zipcode, this.getMapBase64.name)
       // this.getMapBase64()
     }
 
