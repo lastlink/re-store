@@ -1,5 +1,7 @@
 ## mapscraper
 
+* couldn't get working, use [nodejs webscraper instead](../webscraper/readme.md)
+
 ## getting started
 
 * `composer require` pull depencencies

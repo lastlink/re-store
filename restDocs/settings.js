@@ -9,7 +9,7 @@ var settings = {
         },
         "smbusweek19-live": {
             "zipcodeapiToken": "jstoken",
-            "url_oauth": "https://re-store.funktecno.com/sso/oauth.php",
+            "url_oauth": "https://re-store.funktechno.com/sso/oauth.php",
             "otoken": "oauthtoken",
             "osecret": "secret"
         },
