@@ -37,7 +37,20 @@ var app = new Vue({
         location.href = "/pages/findCustomers.html?zipcode=" + this.zipcode;
 
     },
+    requestData: {},
     resources: null,
+    createOffer: function () {
+
+      console.log(this.requestData)
+      var requestData = this.requestData
+      if (!(requestData.merchantCategoryCodeDesc && requestData.merchantStreetAddress && requestData.offer && requestData.visaMerchantName)) {
+        this.errors = "Please fill out all fields first.";
+        return;
+      }
+      this.errors = null;
+      console.log(this.createOffer.name)
+
+    },
     calculateNeedFit: function () {
       if (!this.description) {
         this.errors = "Please fill in request need before submitting"

@@ -10,6 +10,7 @@
     <link href='../src/css/menu.css' rel='stylesheet' />
     <link href='../src/css/styles.css' rel='stylesheet' />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
 </head>
 
 <body>
@@ -96,23 +97,32 @@
                 <h2>Re-Store</h2>
 
                 <h4 align="left">Connect:</h4>
-                <textarea rows="4" cols="40" placeholder="Offer" v-model="request.offer"></textarea><br>
-                    <label>Name</label>
-                <input type="text" id="visaMerchantName" v-model="request.visaMerchantName"></div><br><br>
-                    <label>Merchant Type</label>
-                    <input type="text" id="merchantCategoryCodeDesc" v-model="request.merchantCategoryCodeDesc"><br><br>
-                    <label>Address</label>
-                    <input type="text" id="merchantStreetAddress" v-model="request.merchantStreetAddress"><br><br>
-                    <label>Email</label>
-                    <input type="text" id="Email" ><br><br>
-                    <label>website</label>
-                    <input type="text" id="website" ><br>
-                <br>
-                <a class="button round" v-on:click.stop="createOffer">Create Proposal</a>
+
+                <div class="semipolar-spinner" v-if="loading" v-cloak>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                </div>
+                <textarea rows="4" cols="40" placeholder="Offer" v-model="requestData.offer"></textarea><br>
+                <label>Name</label>
+                <input type="text" id="visaMerchantName" v-model="requestData.visaMerchantName">
+            </div><br><br>
+            <label>Merchant Type</label>
+            <input type="text" id="merchantCategoryCodeDesc" v-model="requestData.merchantCategoryCodeDesc"><br><br>
+            <label>Address</label>
+            <input type="text" id="merchantStreetAddress" v-model="requestData.merchantStreetAddress"><br><br>
+            <label>Email</label>
+            <input type="text" id="Email"><br><br>
+            <label>website</label>
+            <input type="text" id="website"><br>
+            <br>
+            <a class="button round" v-on:click.stop="createOffer">Create Proposal</a>
 
 
-            </div>
         </div>
+    </div>
     </div>
 </body>
 <script src="../src/js/index.js"></script>
