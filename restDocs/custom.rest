@@ -8,4 +8,7 @@ GET http://localhost:3000/scrape?zoom=15&lat=38.9092&long=-77.0344 HTTP/1.1
 ### live url
 GET https://scrape_re-store.serveo.net/scrape?zoom=15&lat=38.9092&long=-77.0344 HTTP/1.1
 
+### oauth
+GET {{url_oauth}}?otoken={{otoken}} HTTP/1.1
+
 ###
