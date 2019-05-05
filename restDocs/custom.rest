@@ -21,4 +21,14 @@ GET https://re-store.funktechno.com/api/get-requests.php HTTP/1.1
 ### get offers
 GET https://re-store.funktechno.com/api/get-offers.php HTTP/1.1
 
+### post offers
+POST https://re-store.funktechno.com/api/post-offer.php HTTP/1.1
+Content-Type: application/json
+
+{
+    "visaMerchantName":"test2",
+    "merchantStreetAddress":"testa",
+    "offer":"test5",
+    "merchantCategoryCodeDesc":"test7"
+}
 ###
