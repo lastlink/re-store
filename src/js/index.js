@@ -13,6 +13,7 @@ var app = new Vue({
     zipcode: null,
     errors: null,
     loading: null,
+    summary: null,
     todos: [
       { text: 'Learn JavaScript' },
       { text: 'Learn Vue' },
@@ -20,6 +21,7 @@ var app = new Vue({
     ],
     mapImage: null,
     authorize: null,
+    description: null,
     navFindCustomers: function () {
       console.log(this.navFindCustomers.name + this.zipcode)
       if (!this.zipcode) {
@@ -36,6 +38,35 @@ var app = new Vue({
 
     },
     resources: null,
+    calculateNeedFit: function () {
+      if(!this.description){
+        this.errors="Please fill in request need before submitting"
+        return;
+      }
+      console.log(this.calculateNeedFit.name)
+      this.loading = true;
+      this.errors = null;
+      this.$http.get("https://re-store.funktechno.com/python/pythonrunner.php").then((response) => {
+        this.loading = false;
+        console.log(response)
+        // this.message = response.data.message;
+        if (response.status == 200) {
+          this.summary = true;
+          console.log(response.data)
+          var results = response.data
+          var item = results[Math.floor(Math.random() * results.length)];
+
+          this.matchPer = item == 0 ? 0 : 1 - (item / 100)
+        } else {
+          this.errors = "Failed to calculate match"
+        }
+      }).catch((error) => {
+        this.errors = "Failed to calculate match, try again"
+        console.log(error)
+        this.loading = null;
+
+      });
+    },
     getResources: function () {
       this.loading = true;
       this.errors = null;
@@ -138,6 +169,7 @@ var app = new Vue({
         return;
       }
       this.loading = true;
+      return
       this.$http.get("https://re-store.funktechno.com/sso/oauth.php?otoken=" + code).then((response) => {
         console.log(response)
         console.log(response.data)

@@ -10,6 +10,7 @@
     <link href='../src/css/menu.css' rel='stylesheet' />
     <link href='../src/css/styles.css' rel='stylesheet' />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
 </head>
 
 <body>
@@ -92,29 +93,46 @@
             <div id="m-menu">
             </div>
             <div id="m-content">
+
                 <div class="errors" v-if="errors"><span v-cloak>{{errors}}</span></div>
                 <h2>Re-Store</h2>
+                <div class="semipolar-spinner" v-if="loading" v-cloak>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                </div>
+                <div v-if="!summary">
 
-                <h4 align="left">What do you need?</h4>
-                <textarea rows="4" cols="40" placeholder="Enter your needs to kick start your business"></textarea><br>
-                <a class="button round" v-on:click.stop="navAlerts">submit</a><br><br>
-                <table border="1" align="center" width="90%">
-                    <thead>
-                        <td>Name</td>
-                        <td>Address</td>
-                        <td>Offer</td>
-                    </thead>
-                    <tr>
-                        <td>Name1</td>
-                        <td>Address1</td>
-                        <td>Offer1</td>
-                    </tr>
-                    <tr>
-                        <td>Name2</td>
-                        <td>Address2</td>
-                        <td>Offer2</td>
-                    </tr>
-                </table>
+
+                    <h4 align="left">What do you need?</h4>
+                    <textarea rows="4" cols="40" v-model="description"
+                        placeholder="Enter your needs to kick start your business"></textarea><br>
+                    <a class="button round" v-on:click.stop="calculateNeedFit">submit</a><br><br>
+                    <div v-if="!loading">
+                        <table border="1" align="center" width="90%">
+                            <thead>
+                                <td>Name</td>
+                                <td>Address</td>
+                                <td>Offer</td>
+                            </thead>
+                            <tr>
+                                <td>Name1</td>
+                                <td>Address1</td>
+                                <td>Offer1</td>
+                            </tr>
+                            <tr>
+                                <td>Name2</td>
+                                <td>Address2</td>
+                                <td>Offer2</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div v-else>
+                    <p>Request was a {{matchPer * 100}}% with the offers.</p>
+                </div>
             </div>
         </div>
     </div>
