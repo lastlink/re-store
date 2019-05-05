@@ -39,8 +39,8 @@ var app = new Vue({
     },
     resources: null,
     calculateNeedFit: function () {
-      if(!this.description){
-        this.errors="Please fill in request need before submitting"
+      if (!this.description) {
+        this.errors = "Please fill in request need before submitting"
         return;
       }
       console.log(this.calculateNeedFit.name)
@@ -163,13 +163,13 @@ var app = new Vue({
       setTimeout(function () { this.loading = false; }.bind(this), 3000)
     },
     attemptOauth(searchParams) {
+      console.log(this.attemptOauth.name)
       var code = searchParams.get("code")
       if (!code) {
         this.errors = "Missing oauth token";
         return;
       }
       this.loading = true;
-      return
       this.$http.get("https://re-store.funktechno.com/sso/oauth.php?otoken=" + code).then((response) => {
         console.log(response)
         console.log(response.data)
@@ -188,12 +188,13 @@ var app = new Vue({
       }).catch((error) => {
         this.loading = null;
         localStorage.authorize = null
+        console.log(error)
+
         if (error.status == 400 && error.data.error_description) {
           this.errors = error.data.error_description
           return;
         }
         this.errors = "Failed to sign in using authorize.net"
-        console.log(error)
       });
 
       // xhr.open("GET", "https://re-store.funktechno.com/sso/oauth.php?otoken=60gHMG");
@@ -229,6 +230,9 @@ var app = new Vue({
 
       });
     },
+    getOffers: function () {
+      console.log(this.getOffers.name)
+    },
     toggleMenu: function () {
       var x = document.getElementById("myNavbar");
       if (x.className === "collapse navbar-collapse") {
@@ -254,7 +258,12 @@ var app = new Vue({
     }
 
     if (localStorage.authorize) {
-      this.authorize = JSON.parse(localStorage.authorize)
+      try {
+        this.authorize = JSON.parse(localStorage.authorize)
+
+      } catch (error) {
+        console.log(error)
+      }
     }
 
     switch (true) {
@@ -263,6 +272,9 @@ var app = new Vue({
         break;
       case (url_string.indexOf("authorized") != -1):
         this.attemptOauth(url.searchParams)
+        break;
+      case (url_string.indexOf("requests") != -1):
+        this.getOffers()
         break;
 
       default:
