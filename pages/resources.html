@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Re-store: Find Customers</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href='../src/css/generatedStyles.css' rel='stylesheet' />
+    <link href='../src/css/menu.css' rel='stylesheet' />
+    <link href='../src/css/styles.css' rel='stylesheet' />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="Web_1920___home">
+        <div id="desktop">
+            <div id="rightMenu">
+                <svg class="Rectangle_1">
+                    <rect id="Rectangle_1" rx="0" ry="0" x="0" y="0" width="433" height="1080">
+                    </rect>
+                </svg>
+                <a href="../index.html">
+                    <svg class="Rectangle_2 Rectangles">
+                        <rect id="Rectangle_2" rx="24" ry="24" x="0" y="0" width="371" height="117">
+                        </rect>
+                    </svg>
+                </a>
+                <div id="What_do_you_need_">
+                    <span>What do you need?</span>
+                </div>
+                <svg class="Rectangle_3 ActiveRect">
+                    <rect id="Rectangle_3" rx="24" ry="24" x="0" y="0" width="259" height="90">
+                    </rect>
+                </svg>
+                <div id="Find_Customers">
+                    <span>Find Customers</span>
+                </div>
+                <svg class="Rectangle_4 Rectangles">
+                    <rect id="Rectangle_4" rx="24" ry="24" x="0" y="0" width="259" height="90">
+                    </rect>
+                </svg>
+                <div id="Logistics">
+                    <span>Logistics</span>
+                </div>
+                <svg class="Rectangle_5 Rectangles">
+                    <rect id="Rectangle_5" rx="24" ry="24" x="0" y="0" width="259" height="90">
+                    </rect>
+                </svg>
+                <div id="Funding">
+                    <span>Funding</span>
+                </div>
+                <svg class="Rectangle_6 Rectangles">
+                    <rect id="Rectangle_6" rx="24" ry="24" x="0" y="0" width="379" height="117">
+                    </rect>
+                </svg>
+                <div id="Tell_us_about_your_business">
+                    <span>Tell us about your business</span>
+                </div>
+            </div>
+            <div id="content">
+
+            </div>
+        </div>
+        <div id="mobile">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid" id="myTopnav">
+                    <div class="navbar-header">
+                        <a href="../index.html" class="">Home</a>
+                        <a href="javascript:void(0);" class="navbar-toggle icon" data-toggle="collapse"
+                            data-target="#myNavbar" v-on:click="toggleMenu">
+                            <div class="fa fa-bars icon-bars"></div>
+                            <div class="fa fa-bars icon-bars"></div>
+                            <div class="fa fa-bars icon-bars"></div>
+
+                        </a>
+
+                        <!-- <a class="navbar-brand" href="#">Menu</a> -->
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li id="home" class=""><a href="../index.html">Home</a></li>
+                            <li class="active"><a href="./findCustomers.html">Find Customers</a></li>
+                            <li class=""><a href="./offers.html">Offers</a></li>
+                            <li class=""><a href="./requests.html">Requests</a></li>
+                            <li class=""><a href="./acceptOffer.html">Accept an Offer</a></li>
+                            <li class=""><a href="./resources.html">Resources</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div id="m-menu">
+            </div>
+            <div id="m-content">
+                <div class="errors" v-if="errors"><span v-cloak>{{errors}}</span></div>
+                <h2>Re-Store</h2>
+
+                <h3>Resources:</h3>
+                <div class="formInput">
+                    <input type="number" id="CUSTOMERS" v-model="zipcode">
+                    <a class="button round" v-on:click.stop="navFindCustomers">Go</a>
+
+                </div>
+                <h3>Local Resources:</h3>
+
+                <div class="formInput">
+                    <label><strong>Name</strong>
+                    </label>
+                    sample name
+                    <br>
+                    <label><strong>Address</strong>
+                    </label>
+                    5000 5000 this is a smaple address, washington dc, USA
+                    <br>
+                    <br>
+                </div>
+                <div class="formInput">
+                    <label><strong>Name</strong>
+                    </label>
+                    sample name
+                    <br>
+                    <label><strong>Address</strong>
+                    </label>
+                    5000 5000 this is a smaple address, washington dc, USA
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../src/js/index.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102829142-29"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-102829142-29');
+</script>
+
+</html>
