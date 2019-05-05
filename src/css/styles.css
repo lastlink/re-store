@@ -5,6 +5,14 @@ body {
 .hidden{
   display:none;
 }
+/* for preloading documents */
+[v-cloak] {
+  display:none;
+}
+
+.errors {
+  color:red;
+}
 
 @media only screen and (max-width: 600px) {
     #desktop{

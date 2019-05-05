@@ -96,8 +96,8 @@
                             <li class=""><a href="./pages/findCustomers.html">Find Customers</a></li>
                             <li class=""><a href="./pages/offers.html">Offers</a></li>
                             <li class=""><a href="./pages/requests.html">Requests</a></li>
-                            <li class=""><a href="./pages/acceptOffer.html">Accept an Offer</a></li> 
-                            <li class=""><a href="./pages/resources.html">Resources</a></li> 
+                            <li class=""><a href="./pages/acceptOffer.html">Accept an Offer</a></li>
+                            <li class=""><a href="./pages/resources.html">Resources</a></li>
                         </ul>
                     </div>
                 </div>
@@ -105,34 +105,38 @@
             <div id="m-menu">
             </div>
             <div id="m-content">
+                <div class="errors" v-if="errors"><span v-cloak>{{errors}}</span></div>
                 <h2>What do you need?</h2>
-                <div class="formInput">
-                    <input type="checkbox" id="CUSTOMERS" value="CUSTOMERS" v-model="checkedNeeds">
 
-                    <label for="CUSTOMERS">CUSTOMERS</label>
-                </div>
-
+                <h3>Find customers:</h3>
                 <div class="formInput">
-                    <input type="checkbox" id="OPPORTUNITIES" value="OPPORTUNITIES" v-model="checkedNeeds">
-                    <label for="OPPORTUNITIES">OPPORTUNITIES</label>
+                    <input type="number" id="CUSTOMERS" v-model="zipcode">
+                    <a class="button round" v-on:click.stop="navFindCustomers">Go</a>
+
                 </div>
+                <h3>Get back in business:</h3>
 
                 <div class="formInput">
-                    <input type="checkbox" id="SBA" value="SBA" v-model="checkedNeeds">
-                    <label for="SBA">SBA FUNDING RESOURCES</label>
-                </div>
-                <div class="formInput">
+                    <label>What can you provide?
+                    </label>
+                    <a class="button round" v-on:click.stop="request">Request</a>
+                    <br>
 
-                    <input type="checkbox" id="SUPPLIES" value="SUPPLIES" v-model="checkedNeeds">
-                    <label for="SUPPLIES">SUPPLIES</label>
+                    <label>What do you need?
+                    </label>
+
+                    <a class="button round" v-on:click.stop="offer">Offer</a>
                 </div>
+
+                <h3>Rebuild loans, state and local resources:</h3>
+
                 <div class="formInput">
-                    <input type="checkbox" id="ALERTS" value="ALERTS" v-model="checkedNeeds">
-                    <label for="ALERTS">ALERTS</label>
+                    <input type="number" id="CUSTOMERS" v-model="zipcode">
+                    <a class="button round" v-on:click.stop="navResources">Go</a>
                 </div>
                 <br>
-                <a class="button round" v-on:click.stop="request">Request</a>
-                <a class="button round" v-on:click.stop="offer">Offer</a>
+                <a class="button round" v-on:click.stop="navAlerts">Setup Alerts</a>
+
 
             </div>
         </div>
@@ -143,11 +147,11 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102829142-29"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'UA-102829142-29');
+    gtag('config', 'UA-102829142-29');
 </script>
 
 
