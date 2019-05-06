@@ -161,23 +161,26 @@ var app = new Vue({
       this.loading = true;
       this.errors = null;
 
+      // disable image scraper
+      this.errors = "The map image scraper service is no longer available."
+      this.loading = false;
       // xhr.withCredentials = true;
-      this.$http.get("https://scrape_re-store.serveo.net/scrape?zoom=15&lat=" + request.lat + "&long=" + request.lng).then((response) => {
-        console.log(this.testData)
-        console.log(response)
-        this.loading = false;
+      // this.$http.get("https://scrape_re-store.serveo.net/scrape?zoom=15&lat=" + request.lat + "&long=" + request.lng).then((response) => {
+      //   console.log(this.testData)
+      //   console.log(response)
+      //   this.loading = false;
 
-        // this.message = response.data.message;
-        if (response.status == 200) {
-          this.updateImage(response.data.base64Str)
-        } else {
-          this.errors = "Failed to load Map image try again"
-        }
-      }).catch((error) => {
-        this.errors = "Failed to Retrieve Latitude and Longitude"
-        console.log(error)
-        this.loading = null;
-      });
+      //   // this.message = response.data.message;
+      //   if (response.status == 200) {
+      //     this.updateImage(response.data.base64Str)
+      //   } else {
+      //     this.errors = "Failed to load Map image try again"
+      //   }
+      // }).catch((error) => {
+      //   this.errors = "Failed to Retrieve Latitude and Longitude"
+      //   console.log(error)
+      //   this.loading = null;
+      // });
     },
     clearAuthorize() {
       this.authorize = localStorage.authorize = null;
