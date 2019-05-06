@@ -1,7 +1,18 @@
 # Re-store
 
+* https://twitter.com/hashtag/SmallBusinessWeek?src=hash
+
+## getting started 
+
 * `npm install`
 * `npm start`
+
+## technologies used
+
+* php for web serving & db interactions
+* vuejs front end framework
+* python ai analytics for offers/request matching
+* nodejs for browser scraping for single map image
 
 ## ssh serve
 
